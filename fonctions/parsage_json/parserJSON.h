@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Déclaration des structures */
+/* DÃ©claration des structures */
 typedef enum color_s {
     RED,
     YELLOW,
@@ -31,14 +31,14 @@ typedef struct next_step_s {
     int next_state;
 } next_step_t;
 
-/* Déclaration des variables globales */
+/* DÃ©claration des variables globales */
 #define NB_CELLS 17
-extern char init_display[NB_CELLS];  // 1 à 16
+extern char init_display[NB_CELLS];  // 1 Ã  16
 extern int starting_pos;
 extern next_step_t **state;          // [state_id][RED/YELLOW/GREEN]
 extern int nb_states;
 
-/* Déclaration des fonctions */
+/* DÃ©claration des fonctions */
 color_t parse_color(const char* str);
 direction_t parse_direction(char c);
 void parse_json_with_jsmn(const char* filename);

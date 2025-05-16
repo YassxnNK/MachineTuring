@@ -1,7 +1,7 @@
 #include "parserJSON.h"
 
 int main(void) {
-    parse_json_with_jsmn("algorithmes/algo1.json");
+    parse_json_with_jsmn("algorithmes/algo2.json");
 
     const char* color_names[] = {"RED", "YELLOW", "GREEN"};
     const char* dir_names[] = {"RIGHT", "LEFT", "NONE"};
@@ -13,7 +13,7 @@ int main(void) {
 
     printf("\nStarting pos: %d\n\n", starting_pos);
 
-    printf("Nombre état: %d", nb_states);
+    printf("Nombre état: %d\n", nb_states);
     
     for (int i = 1; i <= nb_states; i++) {
         printf("Etat %d:\n", i);
