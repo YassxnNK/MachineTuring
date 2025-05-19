@@ -1,0 +1,1 @@
+/usr/bin/cc -g "CMakeFiles/project-elec.dir/main.c.o" -o project-elec 
