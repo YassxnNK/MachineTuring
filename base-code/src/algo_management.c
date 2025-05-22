@@ -1,5 +1,22 @@
 #include "algo_management.h"
 
+void move_head(algo_t *machine, size_t num_leds, move_t direction) {
+    if (direction == LEFT) {
+        if (machine->current_pos > 0) {
+            machine->current_pos--;
+        } else {
+            machine->is_done = true;
+        }
+    } else if (direction == RIGHT) {
+        if (machine->current_pos + 1 < num_leds) {
+            machine->current_pos++;
+        } else {
+            machine->is_done = true;
+        }
+    }
+    machine->current_movement = direction;
+}
+
 void run_turing_step(algo_t *machine, led_t *leds, size_t num_leds) {
     // If machine is done no need to conitnue
     if (machine->is_done) {
@@ -22,21 +39,25 @@ void run_turing_step(algo_t *machine, led_t *leds, size_t num_leds) {
 
     color_t current_color = leds[pos].color;
 
+    move_t move;
     // Handle transition based on current color
     switch (current_color) {
         case COLOR_RED:
             leds[pos].color = machine->current_state->next_color_red;
             machine->current_state = machine->current_state->next_state_red;
+            move = machine->current_state->next_movement_red;
             break;
 
-        case COLOR_BLU:
-            leds[pos].color = machine->current_state->next_color_blu;
-            machine->current_state = machine->current_state->next_state_blu;
+        case COLOR_YEL:
+            leds[pos].color = machine->current_state->next_color_yel;
+            machine->current_state = machine->current_state->next_state_yel;
+            move = machine->current_state->next_movement_yel;
             break;
 
         case COLOR_GRN:
             leds[pos].color = machine->current_state->next_color_grn;
             machine->current_state = machine->current_state->next_state_grn;
+            move = machine->current_state->next_movement_grn;
             break;
 
         default:
@@ -44,51 +65,14 @@ void run_turing_step(algo_t *machine, led_t *leds, size_t num_leds) {
             return;
     }
 
-    // Move the head
-    switch (machine->current_state->next_movement) {
-        case LEFT:
-            if (machine->current_pos > 0) {
-                machine->current_pos--;
-            } else {
-                machine->is_done = true;
-            }
-            machine->current_movement = LEFT;
-            break;
-
-        case RIGHT:
-            if (machine->current_pos + 1 < num_leds) {
-                machine->current_pos++;
-            } else {
-                machine->is_done = true;
-            }
-            machine->current_movement = RIGHT;
-            break;
-
-        case CONTINUE:
-            if (machine->current_movement == CONTINUE) {
-                machine->is_done = true;
-                return;
-            }
-
-            // TODO: Some function because we have dup code
-            if (machine->current_movement == LEFT) {
-                if (machine->current_pos > 0) {
-                    machine->current_pos--;
-                } else {
-                    machine->is_done = true;
-                }
-                machine->current_movement = LEFT;
-            }
-            else {
-                if (machine->current_pos + 1 < num_leds) {
-                    machine->current_pos++;
-                } else {
-                    machine->is_done = true;
-                }
-                machine->current_movement = RIGHT;
-            }
-            break;
+    if (move == CONTINUE) {
+        if (machine->current_movement == CONTINUE) {
+            machine->is_done = true;
+            return;
+        }
+        move = machine->current_movement;
     }
+    move_head(machine, num_leds, move);
 
     // Optional safety
     if (machine->current_state == NULL) {

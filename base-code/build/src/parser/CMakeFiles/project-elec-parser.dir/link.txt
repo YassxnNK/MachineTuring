@@ -1,0 +1,1 @@
+gcc  -Wall -g "CMakeFiles/project-elec-parser.dir/parser_json.c.o" -o project-elec-parser 

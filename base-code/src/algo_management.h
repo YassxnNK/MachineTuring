@@ -12,12 +12,16 @@ typedef enum{
 typedef struct state_s{
     uint8_t id_state;
     struct state_s *next_state_red;
-    struct state_s *next_state_blu;
+    struct state_s *next_state_yel;
     struct state_s *next_state_grn;
+
     color_t next_color_red;
-    color_t next_color_blu;
+    color_t next_color_yel;
     color_t next_color_grn;
-    move_t next_movement;
+
+    move_t next_movement_red;
+    move_t next_movement_grn;
+    move_t next_movement_yel;
 } state_t;
 
 typedef struct {
