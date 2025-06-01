@@ -1,6 +1,7 @@
-src/CMakeFiles/project-elec.dir/algo_management.c.o: \
- /home/alex/ISIE31/projet-elec/src/algo_management.c \
+src/CMakeFiles/project-elec.dir/parser_json.c.o: \
+ /home/alex/ISIE31/projet-elec/src/parser_json.c \
  /usr/include/stdc-predef.h \
+ /home/alex/ISIE31/projet-elec/src/parser_json.h \
  /home/alex/ISIE31/projet-elec/src/algo_management.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -61,4 +62,8 @@ src/CMakeFiles/project-elec.dir/algo_management.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/alex/ISIE31/projet-elec/src/led_management.h
+ /home/alex/ISIE31/projet-elec/src/led_management.h \
+ /home/alex/ISIE31/projet-elec/src/jsmn.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h

@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define NUM_LEDS 18
+#define NUM_LEDS 16
 
 typedef enum{
     COLOR_RED,

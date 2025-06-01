@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include "led_management.h"
 
 typedef enum{

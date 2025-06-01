@@ -202,6 +202,30 @@ main.c.s:
 	cd /home/alex/ISIE31/projet-elec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/project-elec.dir/build.make src/CMakeFiles/project-elec.dir/main.c.s
 .PHONY : main.c.s
 
+parser_json.o: parser_json.c.o
+.PHONY : parser_json.o
+
+# target to build an object file
+parser_json.c.o:
+	cd /home/alex/ISIE31/projet-elec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/project-elec.dir/build.make src/CMakeFiles/project-elec.dir/parser_json.c.o
+.PHONY : parser_json.c.o
+
+parser_json.i: parser_json.c.i
+.PHONY : parser_json.i
+
+# target to preprocess a source file
+parser_json.c.i:
+	cd /home/alex/ISIE31/projet-elec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/project-elec.dir/build.make src/CMakeFiles/project-elec.dir/parser_json.c.i
+.PHONY : parser_json.c.i
+
+parser_json.s: parser_json.c.s
+.PHONY : parser_json.s
+
+# target to generate assembly for a file
+parser_json.c.s:
+	cd /home/alex/ISIE31/projet-elec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/project-elec.dir/build.make src/CMakeFiles/project-elec.dir/parser_json.c.s
+.PHONY : parser_json.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -220,6 +244,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parser_json.o"
+	@echo "... parser_json.i"
+	@echo "... parser_json.s"
 .PHONY : help
 
 

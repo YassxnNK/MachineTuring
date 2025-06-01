@@ -1,1 +1,1 @@
-gcc  -Wall -g "CMakeFiles/project-elec.dir/led_management.c.o" "CMakeFiles/project-elec.dir/algo_management.c.o" "CMakeFiles/project-elec.dir/main.c.o" -o project-elec 
+gcc  -Wall -g "CMakeFiles/project-elec.dir/led_management.c.o" "CMakeFiles/project-elec.dir/algo_management.c.o" "CMakeFiles/project-elec.dir/main.c.o" "CMakeFiles/project-elec.dir/parser_json.c.o" -o project-elec 

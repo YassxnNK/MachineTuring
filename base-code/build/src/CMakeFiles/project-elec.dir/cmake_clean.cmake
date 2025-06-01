@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/project-elec.dir/led_management.c.o.d"
   "CMakeFiles/project-elec.dir/main.c.o"
   "CMakeFiles/project-elec.dir/main.c.o.d"
+  "CMakeFiles/project-elec.dir/parser_json.c.o"
+  "CMakeFiles/project-elec.dir/parser_json.c.o.d"
   "project-elec"
   "project-elec.pdb"
 )

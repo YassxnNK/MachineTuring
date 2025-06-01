@@ -18,7 +18,7 @@ void light_leds(led_t* leds, int pos) {
                 printf("R");
                 break;
             case COLOR_YEL:
-                printf("B");
+                printf("Y");
                 break;
             case COLOR_GRN:
                 printf("G");

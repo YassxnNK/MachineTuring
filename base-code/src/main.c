@@ -1,4 +1,7 @@
-#include "algo_management.h"
+#define JSMN_HEADER
+#include "jsmn.h"
+
+#include "parser_json.h"
 
 algo_t init_pingpong_algo() {
     static state_t right;
@@ -34,7 +37,7 @@ algo_t init_pingpong_algo() {
 
     algo_t machine = {
         .current_state = &right,
-        .current_pos = 1,
+        .current_pos = 4,
         .current_movement = RIGHT,
         .is_done = false
     };
@@ -64,17 +67,14 @@ int main(int, char**){
     // TODO: load from json
     led_t leds[NUM_LEDS];
 
-    // Initialize leds
-    for (int i = 0; i < NUM_LEDS; i++) {
-        leds[i].position = i;
-        leds[i].color = COLOR_YEL; 
-    }
-
-    leds[0].color = COLOR_RED;
-    leds[NUM_LEDS-1].color = COLOR_RED;
-
     // Setup machine
-    algo_t machine = init_pingpong_algo();
+    //algo_t machine = init_pingpong_algo();
+    algo_t machine;
+    parse_status_t status = parse_turing_file("./algo/algo1.json", &machine, leds);
+    if (status != PARSE_OK) {
+        printf("Erreur de parsing: %d\n", status);
+        exit(0);
+    }
 
     // Run loop
     while (!machine.is_done) {

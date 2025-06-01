@@ -6,4 +6,5 @@ add_executable(${EXECUTABLE_NAME}
     led_management.c
     algo_management.c
     main.c
+    parser_json.c
 )
