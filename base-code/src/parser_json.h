@@ -14,14 +14,16 @@ typedef enum {
     PARSE_ERR_JSON,
     PARSE_ERR_NO_STATE_1,
     PARSE_ERR_INVALID_TRANSITION,
-    PARSE_ERR_MEMORY
-} parse_status_t;
+    PARSE_ERR_MEMORY,
+    PARSE_ERR_FREE_DATA,
+    PARSE_ERR_INVALID_MOVE,
+    PARSE_ERR_INVALID_COLOR,
+    PARSE_ERR_JSON_TOKEN
+
+} parse_err_t;
 
 /// Parse le fichier JSON et initialise l'algo
-parse_status_t parse_turing_file(const char *filename, algo_t *machine, led_t *leds);
-
-/// Donne accès à la bande de LED lue depuis le JSON
-led_t *get_loaded_leds(void);
+parse_err_t parse_turing_file(const char *filename, algo_t *machine, led_t *leds);
 
 /// Libère la mémoire allouée dynamiquement
 void free_parsed_data(void);
