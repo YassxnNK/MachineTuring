@@ -1,17 +1,9 @@
 #define JSMN_HEADER
 #include "jsmn.h"
+
 #include "parser_json.h"
 
-void init_pingpong_algo(algo_t *algo, led_t *leds) {
-
-    for (int i = 0; i < NUM_LEDS; i++) {
-        leds[i].position = i;
-        leds[i].color = COLOR_YEL; 
-    }
-
-    leds[2].color = COLOR_RED;
-    leds[NUM_LEDS-3].color = COLOR_RED;
-
+algo_t init_pingpong_algo() {
     static state_t right;
     static state_t left;
 
@@ -43,10 +35,14 @@ void init_pingpong_algo(algo_t *algo, led_t *leds) {
     left.next_movement_grn  = LEFT;
     left.next_movement_yel  = LEFT;
 
-    algo->current_state = &right;
-    algo->current_pos = 6;
-    algo->current_movement = RIGHT;
-    algo->is_done = false;
+    algo_t machine = {
+        .current_state = &right,
+        .current_pos = 4,
+        .current_movement = RIGHT,
+        .is_done = false
+    };
+
+    return machine;
 }
 
 void wait_ms(int milliseconds) {
@@ -68,17 +64,18 @@ void clear_console() {
 
 
 int main(int, char**){
+    // TODO: load from json
     led_t leds[NUM_LEDS];
 
     // Setup machine
+    //algo_t machine = init_pingpong_algo();
     algo_t machine;
-    //init_pingpong_algo(&machine, leds);
-    
-    parse_err_t status = parse_turing_file("./algo/algo1.json", &machine, leds);
+    parse_status_t status = parse_turing_file("./algo/algo1.json", &machine, leds);
     if (status != PARSE_OK) {
         printf("Erreur de parsing: %d\n", status);
         exit(0);
     }
+
     // Run loop
     while (!machine.is_done) {
         clear_console();

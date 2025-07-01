@@ -16,8 +16,7 @@
         "14":"g",
         "15":"y",
         "16":"y",
-        "pos":6,
-        "movement":"r"
+        "pos":6
     },
 
 
@@ -26,35 +25,35 @@
         "state":{
             "1":{
                 "red":{
-                    "next_color":"r",
-                    "movement":"c",
-                    "state":1
+                    "next_color":"g",
+                    "movement":"l",
+                    "state":2
                 },
                 "green":{
-                    "next_color":"g",
-                    "movement":"r",
+                    "next_color":"r",
+                    "movement":"l",
                     "state":2
                 },
                 "yellow":{
-                    "next_color":"r",
-                    "movement":"c",
+                    "next_color":"y",
+                    "movement":"r",
                     "state":1
                 }
             },
             "2":{
                 "red":{
-                    "next_color":"y",
-                    "movement":"c",
-                    "state":2
+                    "next_color":"g",
+                    "movement":"r",
+                    "state":1
                 },
                 "green":{
-                    "next_color":"g",
-                    "movement":"l",
+                    "next_color":"r",
+                    "movement":"r",
                     "state":1
                 },
                 "yellow":{
                     "next_color":"y",
-                    "movement":"c",
+                    "movement":"l",
                     "state":2
                 }
             }
