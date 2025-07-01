@@ -70,7 +70,7 @@ int main(int, char**){
     // Setup machine
     //algo_t machine = init_pingpong_algo();
     algo_t machine;
-    parse_status_t status = parse_turing_file("./algo/algo1.json", &machine, leds);
+    parse_status_t status = parse_turing_file("../algo/algo1.json", &machine, leds);
     if (status != PARSE_OK) {
         printf("Erreur de parsing: %d\n", status);
         exit(0);
